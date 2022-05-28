@@ -1,0 +1,331 @@
+:root{
+    --main-clr: #262729; /*clr principal*/
+    --main-clr-2: #3b3d40; /*mas claro*/
+    --main-clr-3: #525457; /*aun mas claro*/
+    --main-clr-4: #78797a; /*aun mucho mas claro*/
+
+    --clr:  white; /*para las letras, bordes, :active, etc*/
+
+    --llamative-clr: #00e5ff; /*clr llamativo para hovers, etc*/
+
+    --universal-border-radius: 5px;
+    --universal-trans: 500ms; /*tiempo de transicion de un estado a otro*/
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    border-radius: var(--universal-border-radius);
+
+    font-family: arial;
+    text-decoration: none;
+    color: var(--clr);
+
+    transition: var(--universal-trans);
+}
+
+*::selection{
+    background: var(--llamative-clr);
+    color: var(--main-clr);
+}
+
+a:active{
+    background-color: var(--clr);
+    color: var(--main-clr);
+}
+
+
+body {
+    font-family: Arial;
+    background: var(--main-clr);
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+/*menu ------------------------------------------------------------------
+----------------------------------------------------------------------*/
+
+header{
+    width: 100%;
+    animation-name: menuAparition;
+    animation-duration: 2000ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes menuAparition{
+    0%{
+        margin-top: -100%;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+
+@keyframes menuBlink{
+    0%{
+        background: var(--main-clr-3);
+    }
+    100%{
+        background: var(--main-clr);
+    }
+}
+
+#btn-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 2px solid white;
+
+    background: var(--main-clr);
+
+    font-size: 30px;
+
+    /*Para que siempre este flotando encima de todo*/
+    z-index: 2;
+    position: fixed;
+
+    animation-name: menuBlink;
+    animation-duration: 700ms;
+    animation-delay: 1900ms;
+    animation-iteration-count: 2;
+
+}
+
+header label:hover{
+    cursor: pointer;
+    background-color: var(--main-clr-2);
+}
+
+.menu{
+    border-bottom: 2px solid white;
+    background: var(--main-clr);
+    width: 100%;
+
+    /*Para que siempre este flotando encima de todo*/
+    z-index: 1;
+    position: fixed;
+    display: block;
+}
+
+.menu ul{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    background: var(--main-clr);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.menu li a{
+    display: block;
+    padding: 15px 20px;
+
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--clr);
+}
+
+.menu li a:hover{
+    background: var(--main-clr-2);
+}
+
+
+
+/*caja para multiples articulos ------------------------------------------------------
+----------------------------------------------------------------------*/
+
+.multiple_article_box{
+    margin-top: 70px;
+    background: var(--main-clr);
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/*cajas de los articulos ------------------------------------------------------
+----------------------------------------------------------------------*/
+
+.article_box{
+    margin: 10px;
+
+    width: 210px;
+}
+
+.article_box_mini{
+    margin-bottom: auto;
+
+    width: 210px;
+    height: 125px;
+}
+
+.article_box_category{
+    margin-top: -5px; /*habia una separacion entre esto y la mini misteriosa :v*/
+    padding: 3px;
+
+    color: var(--main-clr-4);
+    font-size: 15px;
+
+}
+
+.article_box_title{
+    font-size: 20px;
+}
+
+/*author_box*/
+.author_box{
+    padding: 3px;
+
+    font-size: 18px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.author_box_name{
+    color: var(--main-clr-4);
+    margin-left: 5px;
+}
+
+.author_box_photo{
+    border: 1px solid var(--main-clr-4);
+    border-radius: 100px;
+}
+
+/*hovers*/
+.article_box:hover{
+    background: var(--main-clr-2);
+}
+
+.article_box_category:hover{
+    background: var(--main-clr-3);
+}
+
+.author_box:hover{
+    background: var(--main-clr-3);
+}
+
+/*categorias de articulos ------------------------------------------------------
+----------------------------------------------------------------------*/
+
+.category_title_box{
+    background-image: radial-gradient(circle at -20% 50%, var(--main-clr-2) 0,  var(--main-clr) 100%);
+    width: 100%;
+    height: auto;
+
+    margin: 10px;
+
+    border-left: 5px solid white;
+
+    padding: 10px;
+}
+
+.category_title_box_name{
+    font-size: 30px;
+    display: flex;
+}
+
+.category_title_box_name ion-icon{
+    color: var(--clr);
+    margin-left: 10px;
+    padding: 2px;
+}
+
+.category_title_box:hover {
+    border-left: 20vw solid white;
+}
+/*
+.category_title_box_name ion-icon:hover{
+    color: var(--main-clr);
+    background: var(--clr);
+}*/
+
+/*btn para mostrar mas articles*/
+.category_more_btn{
+    display: none;/*no existe en este universo ;v*/
+}
+
+/*Responsive ------------------------------------------------------
+----------------------------------------------------------------------*/
+
+@media (max-width: 600px){
+    header label{
+        /*Para que siempre este flotando encima de todo*/
+        z-index: 2;
+        position: fixed;
+        display: block;
+    }
+    .menu{
+        position: absolute;
+        width: 99%;
+
+        
+        margin-left: -110%;
+        border-radius: 10px;
+        border: 2px solid var(--clr);
+
+        z-index: 1;
+        position: fixed;
+        display: block;
+    }
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu li{
+        width: 100%;
+    }
+    #btn-menu:checked ~ .menu {
+        margin-left: 0; 
+    }
+}
+
+@media (max-width: 475px){
+    .article_box{
+        width: 100%;
+        height: auto;
+    }
+    .article_box_mini{
+        width: 100%;
+        height: auto;
+    } 
+    .article_box_category, 
+    .author_box_name{
+        font-size: 16px;
+    }
+    .article_box_title{
+        font-size: 23px;
+    }
+    /*btn para mostrar mas articles*/
+    .category_more_btn{
+        display: block; /*aparece*/
+        background: var(--main-clr-2);
+        width: 100%;
+
+        margin: 10px;
+
+        font-size: 25px;
+    }
+    .category_more_btn:hover{
+        background: var(--main-clr-3);
+    }
+}
